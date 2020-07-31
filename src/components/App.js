@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { Route, Switch } from "react-router-dom"
 import { connect } from "react-redux"
 import { handleReceiveQuestions } from "../actions/questions"
 import { handleReceiveUsers } from "../actions/users"
@@ -18,20 +18,18 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div className="container">
-          <Nav/>
-          {this.props.loading
-            ? null
-            : <Switch>
-                <Route path="/login" component={Login} />
-                <PrivateRoute exact path="/" component={HomePage} />
-                <PrivateRoute path="/add" component={AddQuestion} />
-                <PrivateRoute path="/leaderboard" component={Leaderboard} />
-                <Route component={Error} />
-              </Switch>}
-        </div>
-      </Router>
+      <div className="container">
+        <Nav/>
+        {this.props.loading
+          ? null
+          : <Switch>
+              <Route path="/login" component={Login} />
+              <PrivateRoute exact path="/" component={HomePage} />
+              <PrivateRoute path="/add" component={AddQuestion} />
+              <PrivateRoute path="/leaderboard" component={Leaderboard} />
+              <Route component={Error} />
+            </Switch>}
+      </div>
     )
   }
 }

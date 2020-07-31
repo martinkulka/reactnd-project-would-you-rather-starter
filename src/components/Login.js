@@ -18,7 +18,7 @@ class Login extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    const from = this.props.location !== null && this.props.location.state !== null
+    const from = this.props.location !== undefined && this.props.location.state !== undefined
       ? this.props.location.state.from.pathname
       : "/"
 
